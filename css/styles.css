@@ -1,0 +1,111 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+
+.navbar {
+    background-color: #007bff;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+}
+
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    padding: 20px;
+}
+
+#visualization {
+    max-width: 200%;
+    max-height: 100vh;
+    overflow: hidden;
+    transform-origin: top left;
+    position: relative;
+}
+
+
+
+
+
+#visualization:not(:empty) {
+    display: block;
+}
+
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    animation-name: modalopen;
+    animation-duration: 0.4s;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow: hidden;
+}
+
+
+@keyframes modalopen {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#diagram {
+    cursor: grab;
+}
+
+#diagram:active {
+    cursor: grabbing;
+}
+
+.diagram-title {
+    font-size: 500px;
+    fill: #333;
+    font-weight: bold;
+}
+

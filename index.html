@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined HTML</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#upload">Upload</a>
+    <a class="navbar-brand" href="#visualization">Visualization</a>
+</nav>
+
+<div id="upload" style="display: none;">
+    <!-- Hier den Inhalt der Upload-HTML einfügen -->
+    <h1>D3 Visualization Upload</h1>
+    <div class="container d-flex flex-column align-items-center justify-content-center vh-100">
+        <div class="form-group">
+            <label for="serviceListInput">Service List:</label>
+            <input type="file" class="form-control-file" id="serviceListInput" accept=".xlsx" required>
+        </div>
+        <div class="form-group">
+            <label for="callerCalleeInput">Caller Callee:</label>
+            <input type="file" class="form-control-file" id="callerCalleeInput" accept=".xlsx" required>
+        </div>
+        <div class="form-group">
+            <label for="commonChangesInput">Common Changes:</label>
+            <input type="file" class="form-control-file" id="commonChangesInput" accept=".xlsx" required>
+        </div>
+        <div class="form-group">
+            <label for="companyName">Company Name:</label>
+            <input type="text" class="form-control" id="companyName" placeholder="Enter company name" required>
+        </div>
+        <button id="generate" class="btn btn-primary">Generate Visualization</button>
+    </div>
+    <!-- Hier endet der Inhalt der Upload-HTML -->
+</div>
+
+<div id="display">
+
+    <div id="visualizationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="visualization"></div>
+        </div>
+    </div>
+
+    <div class="container d-flex flex-column align-items-center justify-content-cente">
+        <div class="form-group">
+            <label for="dataFolderSelect">Select Data Folder:</label>
+            <select id="dataFolderSelect" class="form-control">
+                <!-- Dynamisch generierte Optionen -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="visualizationTypeSelect">Select Visualization Type:</label>
+            <select id="visualizationTypeSelect" class="form-control">
+                <option value="chordDiagramCaller">Chord Diagram Caller</option>
+                <option value="chordDiagramCommon">Chord Diagram Common</option>
+                <option value="networkDiagramCaller">Network Diagram Caller</option>
+                <option value="networkDiagramCommon">Network Diagram Common</option>
+                <option value="wordCloudCaller">Word Cloud Caller</option>
+            </select>
+        </div>
+        <button id="visualize" class="btn btn-primary">Visualize Data</button>
+    </div>
+</div>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-cloud/1.2.5/d3.layout.cloud.js"></script>
+<script src="/js/upload-script.js"></script>
+<script src="/js/visualization-script.js"></script>
+<script src="/js/script.js"></script>
+</body>
+</html>
