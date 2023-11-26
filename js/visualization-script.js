@@ -99,7 +99,7 @@ function visualizeChordDiagramCaller(data) {
 
 
     const svg = d3.select("#visualization").append("svg")
-        .attr("viewBox", [-outerRadius, -outerRadius, outerRadius * 6, outerRadius * 4])
+        .attr("viewBox", [-6000, -800, outerRadius * 6, outerRadius * 4])
         .append("g")
         .attr("transform", `translate(${height / 2},${width / 2})`);
 
@@ -178,7 +178,7 @@ function visualizeChordDiagramCommon(data) {
         .radius(innerRadius);
 
     const svg = d3.select("#visualization").append("svg")
-        .attr("viewBox", [-outerRadius, -outerRadius, outerRadius * 6, outerRadius * 4])
+        .attr("viewBox", [-6000, -800, outerRadius * 6, outerRadius * 4])
         .append("g")
         .attr("transform", `translate(${height / 2},${width / 2})`);
 
@@ -312,9 +312,13 @@ function visualizeNetworkDiagramCaller(data) {
     height = 5000;
     const callerCallee = data['callerCallee.json'];
     const networkData = transformDataToNetwork(callerCallee);
+
     const svg = d3.select("#visualization").append("svg")
-        .attr("width", width)
-        .attr("height", height);
+        .attr("viewBox", [-6000, -1000, 15000, 20000])
+        .call(d3.zoom().on("zoom", ({transform}) => {
+            svg.attr("transform", transform);
+        }))
+        .append("g");
 
     const simulation = d3.forceSimulation(networkData.nodes)
         .force("link", d3.forceLink(networkData.links).id(d => d.id))
